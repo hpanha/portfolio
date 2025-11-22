@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Po Lyta</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<script>
+$(document).ready(function() {
+    var skillsAnimated = false;
+
+    function animateSkills() {
+        if (!skillsAnimated && $('#skills').length) {
+            var skillsTop = $('#skills').offset().top - $(window).height() + 100;
+            if ($(window).scrollTop() > skillsTop) {
+                $('.progress-bar').each(function() {
+                    var value = $(this).attr('aria-valuenow');
+                    $(this).css('width', value + '%');
+                });
+                skillsAnimated = true;
+            }
+        }
+    }
+
+    animateSkills(); // in case the user reloads in the middle of the page
+    $(window).scroll(function() {
+        animateSkills();
+    });
+});
+</script>
+
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="51">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top shadow py-lg-0 px-4 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a href="index.html" class="navbar-brand d-block d-lg-none">
+            <h1 class="text-primary fw-bold m-0">ProMan</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between py-4 py-lg-0" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="#home" class="nav-item nav-link active">Home</a>
+                <a href="#about" class="nav-item nav-link">About</a>
+                <a href="#skill" class="nav-item nav-link">Skills</a>
+            </div>
+            <div class="navbar-nav me-auto py-0">
+                <a href="#project" class="nav-item nav-link">Projects</a>
+                <a href="#contact" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+<div class="container-xxl py-5 bg-primary hero-header mb-5">
+    <div class="container my-5 py-5 px-lg-5">
+        <div class="row g-5 py-5">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="text-white mb-4">Po Lyta</h1>
+                <h3 class="text-white mb-4">College Student & Marketing Assistant</h3>
+                <p class="text-white pb-3">Enthusiastic, reliable, and hardworking individual with experience in sales, teaching assistance, and internship roles. Passionate about learning and developing new skills.</p>
+                <a href="#about" class="btn btn-outline-light py-3 px-5">Learn More</a>
+            </div>
+            <div class="col-lg-6 text-center text-lg-end">
+                <img class="img-fluid" src="img/profile.jpg" alt="Po Lyta Profile">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+
+
+    <!-- Video Modal Start -->
+    <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Youtube Video</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 16:9 aspect ratio -->
+                    <div class="ratio ratio-16x9">
+                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                            allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Video Modal End -->
+
+
+   <!-- About Start -->
+<div class="container-xxl py-6" id="about">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Left Column: About & Tabs -->
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="d-flex align-items-center mb-5">
+                    <h3 class="lh-base mb-0">About Me</h3>
+                </div>
+                
+                <ul class="nav nav-pills rounded border border-2 border-primary mb-5">
+                    <li class="nav-item w-50">
+                        <button class="nav-link w-100 py-3 fs-5 active" data-bs-toggle="pill" href="#tab-1">Education</button>
+                    </li>
+                    <li class="nav-item w-50">
+                        <button class="nav-link w-100 py-3 fs-5" data-bs-toggle="pill" href="#tab-2">Experience</button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content">
+                    <!-- Education Tab -->
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                        <div class="row gy-5 gx-4">
+                            <div class="col-sm-12">
+                                <h5>Institute of Foreign Languages (IFL) - Department of English</h5>
+                                <hr class="text-primary my-2">
+                                <p class="text-primary mb-1">2024 - Present</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <h5>Australian Centre for Education (ACE)</h5>
+                                <hr class="text-primary my-2">
+                                <p class="text-primary mb-1">Graduated with IELTS (Band Score 5.5)</p>
+                                <p class="text-primary mb-1">2022 - 2024</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <h5>Toul Svay Prey High School</h5>
+                                <hr class="text-primary my-2">
+                                <p class="text-primary mb-1">Graduated with Grade 2 (B) in all 6 subjects</p>
+                                <p class="text-primary mb-1">2017 - 2022</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Tab -->
+                    <div id="tab-2" class="tab-pane fade show p-0">
+                        <div class="row gy-5 gx-4">
+                            <div class="col-sm-12">
+                                <h5>Teaching Assistant – Kumon Cambodia</h5>
+                                <hr class="text-primary my-2">
+                                <p class="text-primary mb-1">April 2025 - July 2025</p>
+                                <p>Assisted lead teacher with lesson preparation, classroom activities, and student support. Graded assignments and maintained classroom management.</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <h5>Sales Consultant & Marketing Assistant – WKC Optical</h5>
+                                <hr class="text-primary my-2">
+                                <p class="text-primary mb-1">March 2024 - April 2025</p>
+                                <p>Developed customer relationships, met sales targets, supported marketing content creation, social media management, and coordinated promotional events.</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <h5>Internship – WEdu Abroad (Service Quality Management)</h5>
+                                <hr class="text-primary my-2">
+                                <p class="text-primary mb-1">December 2023 - February 2024</p>
+                                <p>Built communication, empathy, and problem-solving skills. Managed exchanges, returns, and refunds while aligning service standards with customer expectations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Me Text -->
+                <p class="mb-4 mt-4">
+                    I am an enthusiastic, self-motivated, reliable, responsible, and hardworking person. I work well in a team and can also take initiative independently. I am adaptable to challenging situations and able to work under pressure while meeting deadlines.
+                </p>
+
+                <!-- Skills / Highlights -->
+                <p class="mb-3"><i class="far fa-check-circle text-primary me-3"></i>Good Team Player</p>
+                <p class="mb-3"><i class="far fa-check-circle text-primary me-3"></i>Analytical & Communication Skills</p>
+                <p class="mb-3"><i class="far fa-check-circle text-primary me-3"></i>Leadership & Organizational Skills</p>
+                <p class="mb-3"><i class="far fa-check-circle text-primary me-3"></i>Computer & Canva Skills</p>
+                <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
+            </div>
+
+            <!-- Right Column: Images & Counters -->
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="row g-3 mb-4">
+                    <div class="col-sm-6">
+                        <img class="img-fluid rounded" src="img/about-1.jpg" alt="">
+                    </div>
+                    <div class="col-sm-6">
+                        <img class="img-fluid rounded" src="img/about-2.jpg" alt="">
+                    </div>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <h5 class="border-end pe-3 me-3 mb-0">Happy Clients</h5>
+                    <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">1234</h2>
+                </div>
+                <p class="mb-4">I aim to deliver excellent service and maintain strong client satisfaction in all my tasks.</p>
+                <div class="d-flex align-items-center mb-3">
+                    <h5 class="border-end pe-3 me-3 mb-0">Projects Completed</h5>
+                    <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">1234</h2>
+                </div>
+                <p class="mb-0">Focused on delivering high-quality results and meeting deadlines efficiently.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+
+
+ <!-- Skills Start -->
+<div class="container-xxl py-6" id="skills">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="display-6">My Skills & Expertise</h1>
+            <p class="text-muted">A combination of technical, interpersonal, and creative skills that help me achieve results efficiently.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Technical Skills -->
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm p-4 h-100">
+                    <h5 class="mb-4 text-primary">Technical Skills</h5>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <i class="fas fa-desktop fa-lg text-primary me-3"></i>
+                        <div class="w-100">
+                            <p class="mb-1">Microsoft Office <span class="float-end">90%</span></p>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <i class="fas fa-paint-brush fa-lg text-primary me-3"></i>
+                        <div class="w-100">
+                            <p class="mb-1">Canva <span class="float-end">85%</span></p>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <i class="fas fa-bullhorn fa-lg text-primary me-3"></i>
+                        <div class="w-100">
+                            <p class="mb-1">Social Media Management <span class="float-end">80%</span></p>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interpersonal Skills -->
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm p-4 h-100">
+                    <h5 class="mb-4 text-primary">Interpersonal & Soft Skills</h5>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <i class="fas fa-comments fa-lg text-primary me-3"></i>
+                        <div class="w-100">
+                            <p class="mb-1">Communication Skills <span class="float-end">95%</span></p>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <i class="fas fa-brain fa-lg text-primary me-3"></i>
+                        <div class="w-100">
+                            <p class="mb-1">Analytical Skills <span class="float-end">90%</span></p>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <i class="fas fa-users fa-lg text-primary me-3"></i>
+                        <div class="w-100">
+                            <p class="mb-1">Teamwork & Leadership <span class="float-end">85%</span></p>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <i class="fas fa-tasks fa-lg text-primary me-3"></i>
+                        <div class="w-100">
+                            <p class="mb-1">Organization & Multitasking <span class="float-end">80%</span></p>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Skills End -->
+
+
+
+<!-- Projects Start -->
+<div class="container-xxl py-6 pt-5" id="project">
+    <div class="container">
+        <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="display-5 mb-3">My Projects</h1>
+            <p class="text-muted">A showcase of my key projects in Food, Social Initiatives, and Marketing</p>
+        </div>
+
+        <!-- Project Filter Buttons -->
+        <div class="d-flex justify-content-center mb-5 wow fadeInUp" data-wow-delay="0.2s">
+            <button class="btn btn-outline-primary me-2 active" data-filter="*">All</button>
+            <button class="btn btn-outline-primary me-2" data-filter=".food">Food</button>
+            <button class="btn btn-outline-primary me-2" data-filter=".social">Social</button>
+            <button class="btn btn-outline-primary" data-filter=".marketing">Marketing</button>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div class="row g-4 project-grid wow fadeInUp" data-wow-delay="0.3s">
+
+            <!-- Project 1: Shinoman Noodle -->
+            <div class="col-lg-4 col-md-6 project-item food">
+                <div class="card h-100 border-0 shadow-hover">
+                    <div class="card-body">
+                        <h4 class="card-title text-primary">Shinoman Noodle</h4>
+                        <p><strong>Overview:</strong> High-quality, tasty, and affordable noodles for Cambodian consumers.</p>
+                        <p><strong>Objectives:</strong></p>
+                        <ul>
+                            <li>Increase brand awareness locally.</li>
+                            <li>Develop marketing strategies to build loyalty.</li>
+                            <li>Ensure consistent product quality.</li>
+                        </ul>
+                        <p><strong>Key Activities:</strong></p>
+                        <ul>
+                            <li>Design marketing campaigns online & offline.</li>
+                            <li>Conduct surveys and taste tests.</li>
+                            <li>Collaborate with distributors and retail stores.</li>
+                            <li>Engage consumers through social media.</li>
+                        </ul>
+                        <p><strong>Expected Outcomes:</strong></p>
+                        <ul>
+                            <li>Increased sales and market share.</li>
+                            <li>Strengthened brand image and loyalty.</li>
+                            <li>Improved marketing strategies from data insights.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Songs for Soldiers -->
+            <div class="col-lg-4 col-md-6 project-item social">
+                <div class="card h-100 border-0 shadow-hover">
+                    <div class="card-body">
+                        <h4 class="card-title text-primary">Assisting Social Initiatives</h4>
+                        <p><strong>Overview:</strong> Support social initiatives like “Songs for Soldiers” to inspire positivity and resilience.</p>
+                        <p><strong>Objectives:</strong></p>
+                        <ul>
+                            <li>Assist in event organization and coordination.</li>
+                            <li>Promote positivity and community spirit.</li>
+                            <li>Encourage resilience in communities.</li>
+                        </ul>
+                        <p><strong>Key Activities:</strong></p>
+                        <ul>
+                            <li>Set up event logistics and materials.</li>
+                            <li>Coordinate participants and engagement.</li>
+                            <li>Promote event via social media and networks.</li>
+                            <li>Provide general event support.</li>
+                        </ul>
+                        <p><strong>Expected Outcomes:</strong></p>
+                        <ul>
+                            <li>Enhanced community morale and motivation.</li>
+                            <li>Increased public awareness of social issues.</li>
+                            <li>Positive and inspiring atmosphere for participants.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Influencer Marketing -->
+            <div class="col-lg-4 col-md-6 project-item marketing">
+                <div class="card h-100 border-0 shadow-hover">
+                    <div class="card-body">
+                        <h4 class="card-title text-primary">Influencer Marketing at Vatanac Building</h4>
+                        <p><strong>Overview:</strong> Promote businesses/events at Vatanac Building using influencer marketing.</p>
+                        <p><strong>Objectives:</strong></p>
+                        <ul>
+                            <li>Create awareness and attract visitors.</li>
+                            <li>Develop influencer relationships.</li>
+                            <li>Leverage social media for wider reach.</li>
+                        </ul>
+                        <p><strong>Key Activities:</strong></p>
+                        <ul>
+                            <li>Research and select relevant influencers.</li>
+                            <li>Negotiate collaborations.</li>
+                            <li>Plan and execute campaigns.</li>
+                            <li>Monitor campaign metrics.</li>
+                        </ul>
+                        <p><strong>Expected Outcomes:</strong></p>
+                        <ul>
+                            <li>Increased foot traffic and engagement.</li>
+                            <li>Strengthened social media presence.</li>
+                            <li>Long-term influencer partnerships.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Projects End -->
+
+<!-- Modern Card Shadow Hover CSS -->
+<style>
+.card.shadow-hover {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+.card.shadow-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+.project-item {
+    display: block;
+}
+.btn-outline-primary.active {
+    background-color: #0d6efd;
+    color: #fff;
+}
+</style>
+
+<!-- Isotope Filter Script -->
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script>
+var iso = new Isotope('.project-grid', {
+    itemSelector: '.project-item',
+    layoutMode: 'fitRows'
+});
+
+var filtersElem = document.querySelectorAll('.btn[data-filter]');
+filtersElem.forEach(function(btn){
+    btn.addEventListener('click', function(){
+        filtersElem.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        iso.arrange({ filter: btn.getAttribute('data-filter') });
+    });
+});
+</script>
+
+
+
+  
+
+
+    
+
+
+<!-- Contact Start -->
+<div class="container-xxl pb-5" id="contact">
+    <div class="container py-5">
+        <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="col-lg-6">
+                <h1 class="display-5 mb-0">Let's Work Together</h1>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+                <a class="btn btn-primary py-3 px-5" href="mailto:polyta2704@gmail.com">Say Hello</a>
+            </div>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <p class="mb-2">My Office:</p>
+                <h3 class="fw-bold">N111, St 57BT, Sangkat Boeung Tompoung,<br>Mean Chey District, Phnom Penh</h3>
+                <hr class="w-100">
+                <p class="mb-2">Call Me:</p>
+                <h3 class="fw-bold">+855 11 399 796</h3>
+                <hr class="w-100">
+                <p class="mb-2">Email Me:</p>
+                <h3 class="fw-bold">polyta2704@gmail.com</h3>
+                <hr class="w-100">
+                <p class="mb-2">Follow Me:</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-square btn-primary me-2" href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <p class="mb-4">
+                    Feel free to reach out to me via email or phone. I am available for internships, collaboration, or freelance opportunities. I am enthusiastic and ready to contribute to new projects.
+                </p>
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                <label for="name">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                <label for="subject">Subject</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+
+
+
+    <!-- Map Start -->
+    <!-- <div class="container-xxl pt-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container-xxl pt-5 px-0">
+            <div class="bg-dark">
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
+                frameborder="0" style="width: 100%; height: 450px; border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+            </div>
+        </div>
+    </div> -->
+    <!-- Map End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid bg-dark text-white py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom text-secondary" href="#">Your Site Name</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom text-secondary" href="https://htmlcodex.com">HTML Codex</a>
+                        <br>Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/typed/typed.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
